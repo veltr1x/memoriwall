@@ -1,0 +1,22 @@
+import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/firestore";
+
+const db = getFirestore();
+const logForm = document.getElementById('logForm');
+
+logForm.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Prevent page reload
+  const logContent = document.getElementById('logInput').value;
+
+  try {
+    // This saves the data permanently in the "user_logs" collection
+    const docRef = await addDoc(collection(db, "user_logs"), {
+      content: logContent,
+      timestamp: serverTimestamp(), // Records exactly when it was saved
+      status: "permanent"
+    });
+    console.log("Log saved with ID: ", docRef.id);
+    logForm.reset(); 
+  } catch (error) {
+    console.error("Error adding document: ", error);
+  }
+});
