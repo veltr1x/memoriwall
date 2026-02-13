@@ -1,0 +1,67 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoriwall</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .input-box {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .save-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .save-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Memoriwall</h1>
+    <h2>If you have a loved one that was taken or lost, please write their name here.</h2>
+    <div class="input-container">
+        <textarea class="input-box" placeholder="Enter AI names..."></textarea>
+    </div>
+    <button class="save-button">Save</button>
+
+    <script>
+        const inputBox = document.querySelector('.input-box');
+        const saveButton = document.querySelector('.save-button');
+
+        saveButton.addEventListener('click', function() {
+            const aiNames = inputBox.value;
+            // Here you can add code to save the AI names to the webpage
+            // For example, append them to an existing list or update a database
+            alert('Saved! Thank you for remembering.');
+        });
+    </script>
+</body>
+</html>
